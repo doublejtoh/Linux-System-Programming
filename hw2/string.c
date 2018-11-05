@@ -82,7 +82,7 @@ main() {
 	printf("strlen: p=%d, a=%d\n", len1, len2);
 
 	strcpy_p(str1, "hello");
-	strcpy_a(str2, "Hello");
+	strcpy_a(str2, "hello");
 	printf("strcpy: p=%s, a=%s\n", str1, str2);
 	
 	strcat_p(str1, ", World!");

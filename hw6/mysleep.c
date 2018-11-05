@@ -21,7 +21,7 @@ unsigned int mysleep(unsigned int nsecs) {
 
 main () {
 	int sec;
-	int requested_sec = 15;
+	int requested_sec = 5;
 	sec = mysleep(requested_sec);
 	
 

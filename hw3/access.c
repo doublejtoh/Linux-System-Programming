@@ -3,15 +3,18 @@
 #include "record.h"
 
 void print_record(Record * rd) {
-	puts(rd->stud);
-	puts(rd->num);
-	puts(rd->dept);
+	puts("-----------RECORD------------");
+	printf("stduent name: %s\n", rd->stud);
+	printf("student number: %s\n",rd->num);
+	printf("student department: %s\n", rd->dept);
+	puts("-----------------------------");
 }
 
 main(int argc, char * argv[]) {
 	FILE * fp;
 	Record rec;
-	
+	int count;
+
 	if (argc != 2) {
 		fprintf(stderr, "Usage: %s file\n", argv[0]);
 		exit(1);	
@@ -24,8 +27,9 @@ main(int argc, char * argv[]) {
 
 	printf("-----Ordered Record List-----\n");
 	printf( "%lu\n", sizeof(rec)); // 45. (Record struct의 전체 크기)
-	while(fread(&rec, sizeof(rec), 1, fp)) {
+	while((count = fread(&rec, sizeof(rec), 1, fp))) {
 		print_record(&rec);
+		printf("readed: %d\n", count);
 	}
 
 	rewind(fp); // 해당 파일의 indicator를 맨처음으로 변경시켜줌.

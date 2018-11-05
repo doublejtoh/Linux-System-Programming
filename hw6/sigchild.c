@@ -3,6 +3,7 @@
 
 void SigChldHandler(int signo) {
 	printf("Received a SIGCHLD signal\n");
+	exit(0);
 }
 
 main() {
@@ -22,8 +23,10 @@ main() {
 		exit(0);
 	}
 	else {
-		pause();
-		printf("parent process will be terminated.");
+		while(1) {
+			printf(" Parent says: i m working now....\n");
+		}
+		printf("parent process will be terminated.\n");
 	}
 
 }

@@ -7,7 +7,7 @@ main (int argc, char * argv[]) {
 		exit(1);
 	}
 
-	if (chdir(argv[1]) > -1) { // argv[1]로 현재 directory를 바꾸어줌. 실패시 -1 리턴.
+	if (chdir(argv[1]) < 0 ) { // argv[1]로 현재 directory를 바꾸어줌. 실패시 -1 리턴.
 		perror("chdir");
 		exit(1);
 	}

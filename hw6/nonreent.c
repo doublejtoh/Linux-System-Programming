@@ -43,5 +43,7 @@ main() {
 질문. 
 gdb 환경에서 start 후, next로 확인해보면
 36라인에서 strcmp되다가 signal handler 수행되서 ptr의 pw_name이 root로 바뀌게 되서 36라인의 if문으로 들어가게 되는 것을 확인할 수 있으나, 실행파일로 실행해보면 이를 확인할 수 없는데, 이 이유가 궁금하다.
+
+유닉스에서는 getpwnam의 static struct passwd data;를 건드리는 부분이 critical section인데도 그냥 lock걸고 unlock하는 로직을 안씀. 따라서 36라인의 strcmp에서 printf("Retur value corrupted"에 빠지게되는데 반면에 리눅스에서는 lock걸고 unlock하는 로직이 있으므로 main thread가 getpwnam하다가 critical section들어가서 lock 하고 그다음에 바로 signal hanlder 수행되면, signal handler에서는 critical section이 main thread에 의해서 lock되어있으므로 signal handler에서 해당 critial section 못들어감. 이때, signal handler가 종료되야 main thread가 lock을 푸는데, 그러지를 못하므로 deadlock 발생.
 */
 }

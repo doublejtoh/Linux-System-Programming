@@ -16,7 +16,7 @@ main (int argc, char * argv[]) {
 		exit(1);
 	}
 
-	if ((dst = fopen(argv[2], "wt")) == NULL) {
+	if ((dst = fopen(argv[2], "wb")) == NULL) {
 		perror("fopen");
 		exit(1);
 	}
