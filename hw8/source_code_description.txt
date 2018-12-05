@@ -1,0 +1,11 @@
+prodcons.h
+prodcons_t.c -> consumer, producer thread without semaphore
+prodcons.c -> consumer, producer thread with semaphore
+
+producer.c -> producer process race condition without semaphore
+conusmer.c -> consumer process race condition without semaphore
+
+producer_s.c -> producer process race condition with semaphore
+consumer_s.c -> consumer process race condition with semaphore
+
+

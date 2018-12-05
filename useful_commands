@@ -1,0 +1,20 @@
+grep -r "word"
+grep -r -l "foo"
+
+man 3 printf // printf의 3단락을 보겠따.
+
+gdb --args executablename arg1 arg2 arg2 arg3
+
+grep -r -l "foo" /path/
+
+
+ls -r | grep -rnw -e 'pattern' // ls -r 로 결과 나온거중에서 pattern 이라는 문자열 포함하고있는 file을 보여주겠따.
+
+
+gdb 디버깅 할 때 backtrace check
+
+run
+
+bt
+
+하면 오류 로그를 볼 수 있음.
