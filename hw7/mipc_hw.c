@@ -34,7 +34,7 @@ main() {
 	}
 
 	pInt = (int *) shmptr;
-	TELL_WAIT();
+	TELL_WAIT(); // pipe 두개 init.
 	if (( pid = fork()) < 0) {
 		perror("fork");
 		exit(1);

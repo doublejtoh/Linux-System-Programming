@@ -89,4 +89,4 @@ main() {
 	printf("Consumer: %d items in buffer.....\n", pBuf->counter);
 }
 
-// Producer_s에서 semDestroy해줬으니 여기서는 해주면안된다.
+// Producer_s에서 shmctl(IPC_RMID), semDestroy해줬으니 여기서는 해주면안된다.

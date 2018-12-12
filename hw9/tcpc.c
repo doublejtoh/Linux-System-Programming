@@ -17,7 +17,7 @@ main(int argc, char * argv[]) {
 
 	bzero((char *)&servAddr, sizeof(servAddr));
 	servAddr.sin_family = PF_INET;
-	servAddr.sin_addr.s_addr = inet_addr(SERV_HOST_ADDR);
+	servAddr.sin_addr.s_addr = inet_addr(SERV_HOST_ADDR); // convert SERV_HOST_ADDR (IPv4  numbers-and-dots)  notation into binary data in network byte  order
 	servAddr.sin_port = htons(SERV_TCP_PORT);
 
 	if (connect(sockfd, (struct sockaddr *) &servAddr, sizeof(servAddr)) < 0) { // connect 함으로써 server와 연결됨. 이때, connect하기 전에 bind를 하지 않아도 됨. 그냥 os가 알아서 ip 중에 하나 채택하고, port 도 빈거중에 하나 채택.

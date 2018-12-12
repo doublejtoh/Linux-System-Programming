@@ -2,6 +2,8 @@
 #include <pthread.h>
 #include "semlib2.h"
 
+
+// thread간 semaphore(critical section) logic을 pthread_mutex, pthread_cond가지고  직접 구현.
 int sem_init(sem_t * sem, int pshared, int value) {
 	if (pshared) { // pshared는 프로세스간 sem init할 떄 쓰이는 옵션인데 현재 POSIX library들은 전부 이걸 지원 안하기 떄문에 pshared는 무조건 0으로 한다 .
 		fprintf(stderr, "Function not supported\n");
@@ -77,7 +79,7 @@ int sem_post(sem_t * sem) {
 		return -1;
 	}
 
-	if (sem->sval == 0) { // semaphore 현재 값이 0이라면 signal해서 너 쓸 수 있다고 알려주겠다.
+	if (sem->sval == 0) { // semaphore 현재 값이 0이라면 signal해서 sem_wait에게  알려주겠다.
 		if (pthread_cond_signal(&sem->cond) < 0) {
 			if (pthread_mutex_unlock(&sem->mutex) < 0) {
 				return -1;

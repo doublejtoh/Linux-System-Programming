@@ -6,7 +6,7 @@
 #include <sys/time.h>
 
 #define NUM_MEN		5
-#define NLOOPS		1000
+#define NLOOPS		10
 
 sem_t	ChopStick[NUM_MEN];
 

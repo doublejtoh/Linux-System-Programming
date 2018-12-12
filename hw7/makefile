@@ -52,5 +52,8 @@ mipc: mipc.o synclib.o
 mipc_hw: mipc_hw.o synclib.o
 	$(CC) -o $@ mipc_hw.o synclib.o $(LDFLAGS)
 
+mylsgrep: mylsgrep.o
+	$(CC) -o $@ $< $(LDFLAGS)
+
 clean :
 	rm -rf *.o $(ALL)

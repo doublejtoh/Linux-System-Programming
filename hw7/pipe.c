@@ -29,7 +29,7 @@ main() {
 			exit(1);
 		}
 
-		printf("Child : Received data from parent: ");
+		printf("Child : Received data from parent: %s\n", buf);
 		fflush(stdout);
 		write(STDOUT_FILENO, buf, n); // console에 parent로 부터 받은 data를 출력.
 	} else {

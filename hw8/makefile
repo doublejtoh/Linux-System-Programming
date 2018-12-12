@@ -49,5 +49,8 @@ sipc_process_semaphore_2: sipc_process_semaphore_2.o semlib.o
 sipc_thread_semaphore: sipc_thread_semaphore.o semlib2.o
 	$(CC) -o $@ $? $(LDFLAGS) -g -ggdb
 
+test: test.o
+	$(CC) -o $@ $? $(LDFLAGS)
+
 clean :
 	rm -rf *.o $(ALL)

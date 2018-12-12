@@ -20,6 +20,8 @@ main() {
 	}
 
 	srand(0x8888);
+
+	printf("Initial Buf in: %d , out : %d, counter: %d, data : %d, %d\n", pBuf->in, pBuf->out, pBuf->counter, pBuf->buf[0].data, pBuf->buf[1].data); 
 	for (i = 0; i < NLOOPS; i++) {
 		if (pBuf->counter == MAX_BUF) {
 			printf("Producer: Buffer full. Waiting......\n");

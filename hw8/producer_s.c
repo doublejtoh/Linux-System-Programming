@@ -22,7 +22,7 @@ main() {
 		exit(1);
 	}
 
-	if ((emptySemid = semInit(EMPTY_SEM_KEY)) < 0) { // Semaphore를 한개 생성.
+	if ((emptySemid = semInit(EMPTY_SEM_KEY)) < 0) { // Semaphore를 한개 생성 or Get.
 		fprintf(stderr, "semInit failure\n");
 		exit(1);
 	}
@@ -93,5 +93,5 @@ main() {
 
 /*
 	질문: IPC_RMID가 어떤역할을 하는지?
-
+	마지막 프로세스가 sem, shared memory 등에 대해서 detach하면 비로소 삭제됨.
 */

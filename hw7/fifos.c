@@ -26,7 +26,7 @@ main() {
 	}
 
 	if (mkfifo(SERV_FIFO, 0600) < 0) { // SERV_FIFO  FIFO 파일을 생성 하는데, 내가 생성한 process들만 write, read할 수 있는 FIFO를 만들어라. pwr------- p: pipe.
-		if (errno != EEXIST) {
+		if (errno != EEXIST) { // 이미 존재한다라는 에러뜨면 if문에 빠져들지 않음.
 			perror("mkfifo");
 			exit(1);
 		}

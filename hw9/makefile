@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS =
-LDFLAGS = 
+LDFLAGS =  -lpthread
 
 .SUFFIXES : .c .o
 .c.o :
@@ -47,6 +47,12 @@ myusleep: myusleep.o
 	$(CC) -o $@ $< $(LDFLAGS)
 
 select: select.o 
+	$(CC) -o $@ $< $(LDFLAGS)
+
+select_thread: select_thread.o
+	$(CC) -o $@ $< $(LDFLAGS)
+
+select_thread2: select_thread2.o
 	$(CC) -o $@ $< $(LDFLAGS)
 
 sgs: sgs.o 
