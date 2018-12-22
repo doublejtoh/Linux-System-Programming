@@ -18,6 +18,6 @@ main() {
 
 	del(str);
 	puts(str);
-	printf("%d:\n",strlen(str));
+	puts(strlen(str));
 
 }

@@ -62,6 +62,10 @@ main(int argc, char *argv[])
 
 		else if (pid == 0) { // 자식인 경우
 			close(Sockfd); // 부모가 accept하는 사용하는 socket 먼저닫음. 필요없으니까.
+			if ((n = read(newSockfd, (char *)&msg, sizeof(msg))) < 0) {
+				perror("read");
+				exit(1);
+			}
 			printf("Received Request: %s.....", msg.data);
 			msg.type = MSG_REPLY;
 			strcpy(msg.data, "This is a reply from server.");

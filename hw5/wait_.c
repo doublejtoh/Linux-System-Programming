@@ -15,9 +15,12 @@ main()
 	else if (pid == 0)  {
 		printf("I'm a child\n");
 		sleep(2);
+		exit(0);
 	}
 	else  {
 		wait(&status);
 		printf("A child killed with %d status\n", status);
 	}
+
+	printf("hey");
 }

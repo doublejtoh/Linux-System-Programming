@@ -18,3 +18,5 @@ run
 bt
 
 하면 오류 로그를 볼 수 있음.
+
+nslookup celinux1.khu.ac.kr // celinux1.khu.ac.kr 의 ip주소를 알려줌.

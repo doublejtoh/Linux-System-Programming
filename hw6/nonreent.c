@@ -36,6 +36,8 @@ main() {
 		if (strcmp(ptr->pw_name, "lsp41") != 0) { // 어느 순간 signal alarm이 실행되서 getpwnam("root")가 실행되면, static 변수(pwd)의 값을 바꾸고, pwd의 주소를 return하게 되고, 여기서 ptr은 static 변수의 주소를 값으로 저장하게 됨. 따라서 ptr->pw_name 는 "root"가 되므로 이 줄에서 strcmp 리턴 값이 0이 아니게됨. 
 			printf("Return value corrupted!, pw_name = %s\n", ptr->pw_name);
 			exit(0);
+		} else {
+			printf("Return value correct.\n");
 		}
 	
 	}
